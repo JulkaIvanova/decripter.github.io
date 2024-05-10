@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Pixelify+Sans:wght@400..700&family=Rubik+Scribble&family=Rubik:wght@300&family=Sevillana&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAESAR'S CIPHER</title>
+    <link href="style.css" rel = "stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nova+Square&display=swap" rel="stylesheet">
+    <script>
+        let languag = {value: "Russian"}
+        function decoder(languag){
+            console.log(languag.value)
+            console.log(languag.value == "Russian")
+            let string = document.getElementById("string").value
+            let key = document.getElementById("key").value
+            let alfabet = ["а", "б", "в", "г", "д", "е", "ё", "ж", "з", "и", "й", "к", "л", "м", "н", "о", "п", "р", "с",
+                           "т", "у", "ф", "х", "ц", "ч", "ш", "щ", "ъ", "ы", "ь", "э", "ю", "я"]
+            if (languag.value == "English"){
+                alfabet = ["a", "b", "c",'d','e','f','g','h','i','j','k','l', 'm','n','o','p','q','r','s','t','u','v','w','x','y','z']
+            }
+            let onepart = alfabet.slice(-Number(key))
+            let twopart = alfabet.slice(0, alfabet.length-Number(key))
+            let newalfabet = onepart.concat(twopart)
+            let newstring = ""
+            for (let i = 0; i < string.length; i++){
+                for (let j = 0; j < newalfabet.length; j ++){
+                    if (string[i] == alfabet[j]){
+                        newstring += newalfabet[j]
+                    }
+                } 
+            }
+            console.log(newstring)
+            let de = document.getElementById("de")
+            console.log(de)
+            de.innerHTML = "Result: "+newstring
+
+        }
+        function encoder(){
+            let string = document.getElementById("estring").value
+            let key = document.getElementById("ekey").value
+            let alfabet = ["а", "б", "в", "г", "д", "е", "ё", "ж", "з", "и", "й", "к", "л", "м", "н", "о", "п", "р", "с",
+                           "т", "у", "ф", "х", "ц", "ч", "ш", "щ", "ъ", "ы", "ь", "э", "ю", "я"]
+            if (languag.value == "English"){
+                alfabet = ["a", "b", "c",'d','e','f','g','h','i','j','k','l', 'm','n','o','p','q','r','s','t','u','v','w','x','y','z']
+            }
+            let onepart = alfabet.slice(-Number(key))
+            let twopart = alfabet.slice(0, alfabet.length-Number(key))
+            let newalfabet = onepart.concat(twopart)
+            let newstring = ""
+            for (let i = 0; i < string.length; i++){
+                for (let j = 0; j < newalfabet.length; j ++){
+                    if (string[i] == newalfabet[j]){
+                        newstring += alfabet[j]
+                    }
+                } 
+            }
+            let en = document.getElementById("en")
+            en.innerHTML = "Result: "+newstring
+            // console.log(newstring)
+            
+
+        }
+        function language(languag){
+            let button = document.getElementById("r")
+            if (button.innerHTML == "Russian"){
+                languag.value = "English"
+                button.innerHTML = "English" 
+            }else{
+                languag.value = "Russian"
+                button.innerHTML = "Russian"
+            }
+        }
+    </script>
+</head>
+<body>
+    <header>
+    <div class="div_header">
+        <div>SPY</div>
+        <div style="margin-left: 3%;">ENCRYPT/DECRYPT</div>
+        <div style="margin-left: 3%;">CAESAR'S CIPHER</div>
+        <button id="r" class="button" style="margin-left: 48%; margin-top: 0%; height: 30px;" onclick="language(languag)">Russian</button>
+    </div>
+    <hr class="line">
+    </header>
+    <main>
+        <hr class="line2">
+        <div style="margin-left: 3%;">
+        <h1>DECRYPT</h1>
+        <div class="div_caption">
+            <div class="caption">string</div>
+            <div class="caption" style="margin-left: 13%;">key</div>
+        </div>
+        <div class="decod_div">
+            <input id="string" class="input" required>
+            <input id="key" class="input" required>
+        </div>
+        <button class="button" onclick="decoder(languag)">decrypt</button>
+        <b><p id="de" style="font-family: Comfortaa; color: white; margin-top: 3%; margin-left: 5%;">Result:</p></b>
+        </div>
+        <div style="margin-left: 60%; margin-top: -26%;">
+            <h1 style="margin-left: 22%;">ENCRYPT</h1>
+            <div class="div_caption" style="margin-top: 13%;">
+                <div class="caption" style="margin-left: 10%;">string</div>
+                <div class="caption" style="margin-left: 33%;">key</div>
+            </div>
+            <div class="decod_div">
+                <input id="estring" class="input" required>
+                <input id="ekey" class="input" required>
+            </div>
+            <button class="button" style="margin-top: 7%; margin-left: 25%;" onclick="encoder(languag)">encoder</button>
+            <b><p id="en" style="font-family: Comfortaa; color: white; margin-top: 6%; margin-left: 5%;">Result:</p></b>
+            </div>
+            
+        
+    </main>
+    
+</body>
+</html>

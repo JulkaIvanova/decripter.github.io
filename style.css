@@ -1,0 +1,95 @@
+.button{
+    height: 56px;
+    width: 216.44px;
+    background: #ffffff;
+    border: none;
+    border-radius: 44px;
+    color: #000000;
+    font-family: 'Nova Square';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: 1.96px;
+    text-transform: uppercase;    
+    text-align: center; 
+    margin-left: 13%;
+    margin-top: 3%;
+}
+
+body{
+    background-color: #000000;
+}
+
+
+.input{
+    background-color: #000000;
+    border-radius: 5px;
+    border-color: #ffffff;
+    height: 100px;
+    width: 250px;
+    border-width: 3px;
+    color: #ffffff;
+    text-transform: lowercase;
+    font-family: "Comfortaa";
+    font-size: 20px;
+}
+
+.decod_div{
+    margin-top: 1%;
+    margin-left: 5%;
+}
+
+
+h1{
+    font-family: "Comfortaa";
+    color: #ffffff;
+    font-size: 50px;
+    margin-left: 12%;
+    margin-top: -35%;
+}
+
+.caption{
+    font-family: "Comfortaa";
+    color: #ffffff;
+}
+
+
+.div_caption{
+    display: flex;  
+    flex-direction: row;
+    margin-left: 10%;
+    margin-top: 5%;
+}
+
+.div_header{
+    display: flex;  
+    flex-direction: row;
+    font-family: "Comfortaa";
+    color: #ffffff;
+    font-size: 30px;
+    margin-top: 1%;
+    margin-left: 1%;
+    margin-bottom: 1%;
+}
+
+.line{
+    border: 2px solid rgb(255, 255, 255);
+    height: 0;
+}
+
+
+.button:hover{
+    background-color: #bbbbbb;
+}
+
+
+.line2{
+    border: 3px solid rgb(255, 255, 255);
+    border-left-color: #ffffff;
+    border-right-color: #000000;
+    border-top-color: #000000;
+    border-bottom-color: #000000;
+    margin-left: 50%;
+    height: 860px;
+}
